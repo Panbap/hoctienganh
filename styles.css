@@ -1,0 +1,122 @@
+/* Reset margin và padding cho tất cả các phần tử */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-container, .game-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 90%; /* Đảm bảo khung không vượt quá 90% chiều rộng màn hình */
+    margin: 20px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+#high-score {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#player-info {
+    margin-bottom: 20px;
+}
+
+#player-name {
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    width: calc(100% - 130px); /* Đảm bảo input chiếm phần còn lại của dòng */
+}
+
+.start-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.start-button:hover {
+    background-color: #45a049;
+}
+
+#word {
+    border: 2px solid #000;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 24px;
+}
+
+#choices {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Đặt các lựa chọn thành cột trên màn hình nhỏ */
+    flex-wrap: wrap; /* Sử dụng flex-wrap: wrap để đảm bảo các câu trả lời có thể xuống dòng nếu cần */
+    gap: 10px;
+}
+
+.choice {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    flex: 1 1 100%; /* Các nút lựa chọn chiếm toàn bộ chiều rộng của cột */
+    max-width: none; /* Xoá chiều rộng tối đa để phù hợp với chiều rộng của cột */
+}
+
+.choice.correct {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.choice.incorrect {
+    background-color: #f44336;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Media Queries để điều chỉnh giao diện cho các màn hình nhỏ hơn */
+@media (min-width: 600px) {
+    #player-name {
+        width: auto; /* Trở lại kích thước tự động trên các màn hình rộng hơn */
+    }
+
+    #choices {
+        flex-direction: row; /* Đặt các lựa chọn thành hàng trên màn hình rộng hơn */
+        flex-wrap: wrap; /* Cho phép các lựa chọn xuống dòng nếu cần */
+    }
+
+    .choice {
+        flex: 1 1 auto; /* Cho phép các lựa chọn có chiều rộng tự động */
+        max-width: 150px; /* Đặt chiều rộng tối đa của các lựa chọn */
+    }
+}
